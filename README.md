@@ -2,117 +2,117 @@
 
 ## Description
 
-An ecommerce store built with MERN stack, and utilizes third party API's. This ecommerce store enable three main different flows or implementations:
+A full-featured ecommerce store built using the MERN stack (MongoDB, Express, React, Node.js) with integrations of third-party APIs. This platform facilitates three distinct user flows:
 
-1. Buyers browse the store categories, products and brands
-2. Sellers or Merchants manage their own brand component
-3. Admins manage and control the entire store components 
+1. **Buyers:** Browse and shop products across various categories, brands, and collections.
+2. **Sellers or Merchants:** Manage their own brand and product listings.
+3. **Admins:** Oversee and control the entire platform, including users, orders, and products.
 
 ### Features:
 
-  * Node provides the backend environment for this application
-  * Express middleware is used to handle requests, routes
-  * Mongoose schemas to model the application data
-  * React for displaying UI components
-  * Redux to manage application's state
-  * Redux Thunk middleware to handle asynchronous redux actions
+- **Backend:** Powered by Node.js and Express.js for robust and scalable APIs.
+- **Database:** MongoDB with Mongoose for seamless schema modeling and database management.
+- **Frontend:** Developed using React for a dynamic and responsive user interface.
+- **State Management:** Redux with Redux Thunk for efficient application state handling and asynchronous actions.
+- **Authentication & Authorization:** JWT for secure user sessions.
 
 ## Demo
 
-This application is deployed on Vercel Please check it out :smile: [here](https://mern-store-gold.vercel.app).
+Experience the application live:
+- [Ecommerce Store Demo](https://mern-store-gold.vercel.app) 😄
+- [Admin Dashboard Demo](https://mernstore-bucket.s3.us-east-2.amazonaws.com/admin.mp4)
 
-See admin dashboard [demo](https://mernstore-bucket.s3.us-east-2.amazonaws.com/admin.mp4)
+## Setup Guide
 
-## Docker Guide
+### Docker Guide
 
-To run this project locally you can use docker compose provided in the repository. Here is a guide on how to run this project locally using docker compose.
+To run this project locally using Docker:
 
-Clone the repository
-```
-git clone https://github.com/mohamedsamara/mern-ecommerce.git
-```
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/mohamedsamara/mern-ecommerce.git
+   ```
 
-Edit the dockercompose.yml file and update the the values for MONGO_URI and JWT_SECRET
+2. Update the `docker-compose.yml` file with appropriate values for:
+   - `MONGO_URI`
+   - `JWT_SECRET`
 
-Then simply start the docker compose:
+3. Build and start the Docker containers:
+   ```bash
+   docker-compose build
+   docker-compose up
+   ```
 
-```
-docker-compose build
-docker-compose up
-```
+### Database Seed
 
-## Database Seed
+Initialize the database with an admin user:
 
-* The seed command will create an admin user in the database
-* The email and password are passed with the command as arguments
-* Like below command, replace brackets with email and password. 
-* For more information, see code [here](server/utils/seed.js)
+1. Use the following command, replacing placeholders with your desired email and password:
+   ```bash
+   npm run seed:db [email@example.com] [password]
+   ```
 
-```
-npm run seed:db [email-***@****.com] [password-******] // This is just an example.
-```
+2. For more details, refer to the [seed script](server/utils/seed.js).
 
-## Install
+### Local Installation
 
-`npm install` in the project root will install dependencies in both `client` and `server`. [See package.json](package.json)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/mohamedsamara/mern-ecommerce.git
+   ```
 
-Some basic Git commands are:
+2. Navigate to the project directory and install dependencies:
+   ```bash
+   cd mern-ecommerce
+   npm install
+   ```
 
-```
-git clone https://github.com/mohamedsamara/mern-ecommerce.git
-cd project
-npm install
-```
+3. Configure the environment variables by creating `.env` files in both `client` and `server` directories. Use these templates for guidance:
+   - [Frontend .env](client/.env.example)
+   - [Backend .env](server/.env.example)
 
-## ENV
+4. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-Create `.env` file for both client and server. See examples:
+## Deployment
 
-[Frontend ENV](client/.env.example)
+This application is deployed on Vercel for both frontend and backend. To deploy:
 
-[Backend ENV](server/.env.example)
+1. Set the root directory as `client` or `server` during Vercel configuration.
+2. Refer to the deployment settings for [frontend](client/vercel.json) and [backend](server/vercel.json).
 
+## Languages & Tools
 
-## Vercel Deployment
+- **Backend:**
+  - [Node.js](https://nodejs.org/)
+  - [Express.js](https://expressjs.com/)
+  - [MongoDB](https://www.mongodb.com/)
+  - [Mongoose](https://mongoosejs.com/)
 
-Both frontend and backend are deployed on Vercel from the same repository. When deploying on Vercel, make sure to specifiy the root directory as `client` and `server` when importing the repository. See [client vercel.json](client/vercel.json) and [server vercel.json](server/vercel.json).
+- **Frontend:**
+  - [React](https://reactjs.org/)
+  - [Redux](https://redux.js.org/)
+  - [Webpack](https://webpack.js.org/)
 
-## Start development
+## Code Formatting
 
-```
-npm run dev
-```
+To maintain code quality and consistency, use Prettier as the code formatter:
 
-## Languages & tools
+1. Create a `.vscode` directory in the project root.
+2. Add a `settings.json` file with the following configuration:
 
-- [Node](https://nodejs.org/en/)
+   ```json
+   {
+     "editor.formatOnSave": true,
+     "prettier.singleQuote": true,
+     "prettier.arrowParens": "avoid",
+     "prettier.jsxSingleQuote": true,
+     "prettier.trailingComma": "none",
+     "javascript.preferences.quoteStyle": "single"
+   }
+   ```
 
-- [Express](https://expressjs.com/)
-
-- [Mongoose](https://mongoosejs.com/)
-
-- [React](https://reactjs.org/)
-
-- [Webpack](https://webpack.js.org/)
-
-
-### Code Formatter
-
-- Add a `.vscode` directory
-- Create a file `settings.json` inside `.vscode`
-- Install Prettier - Code formatter in VSCode
-- Add the following snippet:  
-
-```json
-
-    {
-      "editor.formatOnSave": true,
-      "prettier.singleQuote": true,
-      "prettier.arrowParens": "avoid",
-      "prettier.jsxSingleQuote": true,
-      "prettier.trailingComma": "none",
-      "javascript.preferences.quoteStyle": "single",
-    }
-
-```
+3. Install the Prettier extension in your editor (e.g., VSCode).
 
